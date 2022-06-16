@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MouseManager : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class MouseManager : MonoBehaviour
 
     //Swap cursors per object
     public Texture2D pointer;   //Normal pointer
+    public Texture2D pointerNoClick;//Not clickable
     public Texture2D target;    //Clickable objects
     public Texture2D doorway;  //Cursor for doorways    
     public Texture2D combat;    //Cursor for combat
+
+    public EventVector3 OnClickEnvironment;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +28,7 @@ public class MouseManager : MonoBehaviour
         //raycast hit
         //lenght of ray = 50
         //Layermask
+
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50, clickableLayer.value))
         {
             //any time click on something, we re make sure that door is false, normal word iteraction
@@ -36,12 +41,20 @@ public class MouseManager : MonoBehaviour
             }
             else
             {
-                Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
+                Cursor.SetCursor(pointer, new Vector2(16, 16), CursorMode.Auto);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClickEnvironment.Invoke(hit.point);
             }
         }
         else
         {
-            Cursor.SetCursor(pointer, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(pointerNoClick, Vector2.zero, CursorMode.Auto);
         }
     }
 }
+
+[System.Serializable]//available inside the inspector
+public class EventVector3 : UnityEvent<Vector3> { }
