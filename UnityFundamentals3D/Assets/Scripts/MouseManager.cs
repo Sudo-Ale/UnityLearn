@@ -12,7 +12,7 @@ public class MouseManager : MonoBehaviour
     public Texture2D pointer;   //Normal pointer
     public Texture2D pointerNoClick;//Not clickable
     public Texture2D target;    //Clickable objects
-    public Texture2D doorway;  //Cursor for doorways    
+    public Texture2D doorway;  //Cursor for doorways  
     public Texture2D combat;    //Cursor for combat
 
     public EventVector3 OnClickEnvironment;
@@ -33,11 +33,18 @@ public class MouseManager : MonoBehaviour
         {
             //any time click on something, we re make sure that door is false, normal word iteraction
             bool door = false;
+            bool item = false;
 
+            //tags
             if (hit.collider.gameObject.tag == "Doorway")
             {
                 Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
                 door = true;
+            }
+            else if (hit.collider.gameObject.tag == "Item")
+            {
+                Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
+                item = true;
             }
             else
             {
@@ -46,7 +53,24 @@ public class MouseManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                OnClickEnvironment.Invoke(hit.point);
+                if (door)
+                {
+                    Transform doorway = hit.collider.gameObject.transform;
+                    OnClickEnvironment.Invoke(doorway.position);
+
+                    Debug.Log("DOOR");
+                }
+                else if (item)
+                {
+                    Transform itemPos = hit.collider.gameObject.transform;
+                    OnClickEnvironment.Invoke(itemPos.position);
+
+                    Debug.Log("ITEM");
+                }
+                else
+                {
+                    OnClickEnvironment.Invoke(hit.point);
+                }
             }
         }
         else
