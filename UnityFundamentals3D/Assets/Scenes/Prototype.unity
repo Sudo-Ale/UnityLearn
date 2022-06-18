@@ -612,7 +612,7 @@ NavMeshAgent:
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 800
-  m_StoppingDistance: 0.5
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -793,8 +793,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678810209}
-  m_LocalRotation: {x: 0.08220857, y: 0.9161677, z: -0.3034424, w: 0.24859856}
-  m_LocalPosition: {x: -11.128887, y: 9.631168, z: 1.2404246}
+  m_LocalRotation: {x: 0.04236616, y: 0.9449924, z: -0.2942086, w: 0.13651313}
+  m_LocalPosition: {x: -5.707577, y: 8.472562, z: 11.088592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -969,6 +969,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 703207179671786530, guid: f16b11ab013cfd646bc8fa95e0401e46, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 703207179671786530, guid: f16b11ab013cfd646bc8fa95e0401e46, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3578738902796324725, guid: f16b11ab013cfd646bc8fa95e0401e46, type: 3}
       propertyPath: m_RootOrder
       value: 1
