@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     //player reference
     public GameObject player;
+
     //start position of camera
     private Vector3 offset = new Vector3(0, 5, -7);
 
