@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed = 10.0f;
+    readonly float speed = 20.0f;
 
     //range in boundary
     public float xRange = 15.0f;
+
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //input right, left
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(horizontalInput * speed * Time.deltaTime * Vector3.right);
+
         //keep the player in boundary
         if (transform.position.x < -xRange)
         {
@@ -29,8 +35,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
-        //input right, left
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
     }
 }
