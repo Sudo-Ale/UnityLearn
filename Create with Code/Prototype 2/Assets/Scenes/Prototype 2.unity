@@ -348,7 +348,6 @@ MonoBehaviour:
   - {fileID: 7129723045117473394, guid: c39944557ea87564eb1cdc7b7e35c724, type: 3}
   - {fileID: 5204519817640311799, guid: 59bb70ade40ac174f8cdf652c9be41fa, type: 3}
   - {fileID: 5592158625374886488, guid: 89014a57c24b2d24c822aae109651aba, type: 3}
-  animalIndex: 0
 --- !u!1 &475985833
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,27 +606,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3f69bcf5a1514c458ed5c9b96f28e34, type: 3}
---- !u!1 &1578427957 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: f3f69bcf5a1514c458ed5c9b96f28e34, type: 3}
-  m_PrefabInstance: {fileID: 1578427956}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1578427958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578427957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c5ef7c7c217d9459176bb0c7a4669c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalInput: 0
-  speed: 20
-  xRange: 15
-  projectilePrefab: {fileID: 583288957531961267, guid: ce905fa76ddf9cd4d9d5d2ea8bf4b8d0, type: 3}
 --- !u!1 &1590138454
 GameObject:
   m_ObjectHideFlags: 0
