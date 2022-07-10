@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-    private float speed = 20f;
-
-    //range in boundary
-    public float xRange = 15.0f;
-
     public GameObject projectilePrefab;
+    public float horizontalInput;
+    
+    float speed = 20f;
+    //range in boundary
+    float xRange = 20.0f;
 
     // Update is called once per frame
     void Update()
