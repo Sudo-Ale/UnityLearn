@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     //range in boundary
     float xRange = 20.0f;
 
+
+    void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -8,16 +8,24 @@ public class SpawnManager : MonoBehaviour
 
     float spawnRangeX = 20;
     float spawnPosZ = 20;
+    float startDelay = 1.5f;
+    float spawnInterval = 1.5f;
+
+    void Start()
+    {
+        InvokeRepeating(nameof(SpawnRandomAnimal), startDelay, spawnInterval);
+    }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    void SpawnRandomAnimal() 
+    {
         var animalIndex = Random.Range(0, animalPrefabs.Length);
         var spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
-        }
+        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
 }
