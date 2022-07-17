@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        //keep call the method in parenthesees
         InvokeRepeating(nameof(SpawnRandomAnimal), startDelay, spawnInterval);
     }
 
@@ -23,9 +24,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRandomAnimal() 
     {
+        //index of animal in arr and position of animal spawn
         var animalIndex = Random.Range(0, animalPrefabs.Length);
         var spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
+        //instantiate, creates copy of objects
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
 }
