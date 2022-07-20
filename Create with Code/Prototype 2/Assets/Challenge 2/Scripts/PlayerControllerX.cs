@@ -6,13 +6,18 @@ public class PlayerControllerX : MonoBehaviour
 {
     public GameObject dogPrefab;
 
+    float dogInterval = 1;
+    float interval;
+
     // Update is called once per frame
     void Update()
     {
+        interval += Time.deltaTime;
         // On spacebar press, send dog
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (interval > dogInterval))
         {
             Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
+            interval = 0;
         }
     }
 }
