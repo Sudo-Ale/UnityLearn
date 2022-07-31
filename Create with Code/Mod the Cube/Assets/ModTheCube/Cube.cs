@@ -7,23 +7,12 @@ public class Cube : MonoBehaviour
     //renderer attached to the cube
     public MeshRenderer Renderer;
 
-    /* Bound view camera
-    float leftBound = 6.4f;
-    float topBound = 4.0f;
-    float rightBound = -6.0f;
-    float bottomBound = 0.6f;
-    */
-
-    //variables colors public
-    public float RedColor;
-    public float GreenColor;
-    public float BlueColor;
-
     void Start()
     {
         StartSizeCube();
         StartColorCube();
-        //InvokeRepeating(nameof(ChangeColor), 0f, 0.1f);
+
+        InvokeRepeating(nameof(ChangeColor), 1f, 1f);
     }
     
     void Update()
@@ -51,7 +40,7 @@ public class Cube : MonoBehaviour
         transform.Rotate(0.0f, 1.0f * Time.deltaTime, 10.0f * Time.deltaTime);
     }
 
-    /* Change position randomly
+    // Change position randomly
     void ChangePosition() 
     {
         var xPos = Random.Range(2, 3);
@@ -60,18 +49,11 @@ public class Cube : MonoBehaviour
 
         transform.position = new Vector3(xPos, yPos, zPos);
     }
-    */
 
     //Change color applied to variables, increased over calling
-    /* Change color over time
     void ChangeColor()
     {
-        RedColor += 0.005f;
-        GreenColor += 0.005f;
-        BlueColor += 0.005f;
-
         Material material = Renderer.material;
-        material.color = new Color(RedColor, GreenColor, BlueColor, 0.5f);
+        material.color = new Color(Random.value, Random.value, Random.value);
     }
-    */
 }
